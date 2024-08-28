@@ -1,0 +1,77 @@
+2024-08-27 15:36:40,417 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-27 15:36:40,419 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-08-27 15:36:40,425 - werkzeug - INFO -  * Restarting with stat
+2024-08-27 15:36:47,449 - werkzeug - WARNING -  * Debugger is active!
+2024-08-27 15:36:47,463 - werkzeug - INFO -  * Debugger PIN: 559-078-008
+2024-08-27 15:40:06,068 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:06] "GET / HTTP/1.1" 200 -
+2024-08-27 15:40:06,324 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:06] "GET /static/lib/owlcarousel/assets/owl.carousel.min.css HTTP/1.1" 200 -
+2024-08-27 15:40:06,790 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:06] "GET /static/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css HTTP/1.1" 200 -
+2024-08-27 15:40:06,829 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:06] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-08-27 15:40:07,039 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:07] "GET /static/img/blog-1.jpg HTTP/1.1" 200 -
+2024-08-27 15:40:07,040 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:07] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2024-08-27 15:40:07,162 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:07] "GET /static/img/blog-2.jpg HTTP/1.1" 200 -
+2024-08-27 15:40:07,173 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:07] "GET /static/img/blog-3.jpg HTTP/1.1" 200 -
+2024-08-27 15:40:07,364 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:07] "GET /static/lib/easing/easing.min.js HTTP/1.1" 200 -
+2024-08-27 15:40:07,370 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:07] "GET /static/lib/owlcarousel/owl.carousel.min.js HTTP/1.1" 200 -
+2024-08-27 15:40:07,370 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:07] "GET /static/lib/waypoints/waypoints.min.js HTTP/1.1" 200 -
+2024-08-27 15:40:07,525 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:07] "GET /static/lib/tempusdominus/js/moment-timezone.min.js HTTP/1.1" 200 -
+2024-08-27 15:40:07,830 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:07] "GET /static/lib/tempusdominus/js/moment.min.js HTTP/1.1" 200 -
+2024-08-27 15:40:07,883 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:07] "GET /static/js/index.js HTTP/1.1" 200 -
+2024-08-27 15:40:07,916 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:07] "GET /static/js/main.js HTTP/1.1" 200 -
+2024-08-27 15:40:08,374 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:08] "GET /static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js HTTP/1.1" 200 -
+2024-08-27 15:40:08,426 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:08] "GET /static/img/Rajesh%20Kumar.avif HTTP/1.1" 200 -
+2024-08-27 15:40:08,488 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:08] "GET /static/img/Meera%20Singh.avif HTTP/1.1" 200 -
+2024-08-27 15:40:08,723 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:08] "GET /static/img/Arjun%20Patel.avif HTTP/1.1" 200 -
+2024-08-27 15:40:09,089 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:09] "GET /static/img/Neha%20Gupta.avif HTTP/1.1" 200 -
+2024-08-27 15:40:09,114 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:09] "GET /static/img/logo.png HTTP/1.1" 200 -
+2024-08-27 15:40:14,418 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:14] "[33mGET /static/img/favicon.ico HTTP/1.1[0m" 404 -
+2024-08-27 15:40:14,528 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:40:14] "[36mGET /static/img/logo.png HTTP/1.1[0m" 304 -
+2024-08-27 15:41:22,229 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:41:22] "GET /search_doctor HTTP/1.1" 200 -
+2024-08-27 15:41:22,361 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:41:22] "[36mGET /static/lib/owlcarousel/assets/owl.carousel.min.css HTTP/1.1[0m" 304 -
+2024-08-27 15:41:22,615 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:41:22] "[36mGET /static/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css HTTP/1.1[0m" 304 -
+2024-08-27 15:41:22,825 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:41:22] "[36mGET /static/css/bootstrap.min.css HTTP/1.1[0m" 304 -
+2024-08-27 15:41:22,855 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:41:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2024-08-27 15:41:22,902 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:41:22] "[36mGET /static/lib/easing/easing.min.js HTTP/1.1[0m" 304 -
+2024-08-27 15:41:22,957 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:41:22] "[36mGET /static/lib/waypoints/waypoints.min.js HTTP/1.1[0m" 304 -
+2024-08-27 15:41:22,975 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:41:22] "[36mGET /static/lib/owlcarousel/owl.carousel.min.js HTTP/1.1[0m" 304 -
+2024-08-27 15:41:22,978 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:41:22] "[36mGET /static/lib/tempusdominus/js/moment.min.js HTTP/1.1[0m" 304 -
+2024-08-27 15:41:22,985 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:41:22] "[36mGET /static/lib/tempusdominus/js/moment-timezone.min.js HTTP/1.1[0m" 304 -
+2024-08-27 15:41:23,007 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:41:23] "[36mGET /static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js HTTP/1.1[0m" 304 -
+2024-08-27 15:41:23,028 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:41:23] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2024-08-27 15:41:23,057 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:41:23] "[36mGET /static/img/logo.png HTTP/1.1[0m" 304 -
+2024-08-27 15:41:25,481 - werkzeug - INFO - 127.0.0.1 - - [27/Aug/2024 15:41:25] "[33mGET /staticstatic/img/favicon.ico HTTP/1.1[0m" 404 -
+2024-08-28 11:41:38,072 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-28 11:41:38,073 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-08-28 11:41:38,077 - werkzeug - INFO -  * Restarting with stat
+2024-08-28 11:41:44,002 - werkzeug - WARNING -  * Debugger is active!
+2024-08-28 11:41:44,013 - werkzeug - INFO -  * Debugger PIN: 681-469-826
+2024-08-28 11:42:00,677 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:00] "GET / HTTP/1.1" 200 -
+2024-08-28 11:42:00,758 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:00] "GET /static/lib/owlcarousel/assets/owl.carousel.min.css HTTP/1.1" 200 -
+2024-08-28 11:42:00,789 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:00] "GET /static/img/blog-1.jpg HTTP/1.1" 200 -
+2024-08-28 11:42:00,810 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:00] "GET /static/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css HTTP/1.1" 200 -
+2024-08-28 11:42:00,816 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:00] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2024-08-28 11:42:00,840 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:00] "GET /static/css/style.css HTTP/1.1" 200 -
+2024-08-28 11:42:01,068 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:01] "GET /static/img/blog-2.jpg HTTP/1.1" 200 -
+2024-08-28 11:42:01,074 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:01] "GET /static/img/blog-3.jpg HTTP/1.1" 200 -
+2024-08-28 11:42:01,238 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:01] "GET /static/lib/easing/easing.min.js HTTP/1.1" 200 -
+2024-08-28 11:42:01,257 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:01] "GET /static/lib/waypoints/waypoints.min.js HTTP/1.1" 200 -
+2024-08-28 11:42:01,366 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:01] "GET /static/lib/owlcarousel/owl.carousel.min.js HTTP/1.1" 200 -
+2024-08-28 11:42:01,376 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:01] "GET /static/lib/tempusdominus/js/moment-timezone.min.js HTTP/1.1" 200 -
+2024-08-28 11:42:01,376 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:01] "GET /static/js/index.js HTTP/1.1" 200 -
+2024-08-28 11:42:01,602 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:01] "GET /static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js HTTP/1.1" 200 -
+2024-08-28 11:42:01,612 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:01] "GET /static/lib/tempusdominus/js/moment.min.js HTTP/1.1" 200 -
+2024-08-28 11:42:01,728 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:01] "GET /static/js/main.js HTTP/1.1" 200 -
+2024-08-28 11:42:01,744 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:01] "GET /static/img/Meera%20Singh.avif HTTP/1.1" 200 -
+2024-08-28 11:42:01,745 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:01] "GET /static/img/Rajesh%20Kumar.avif HTTP/1.1" 200 -
+2024-08-28 11:42:01,777 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:01] "GET /static/img/Arjun%20Patel.avif HTTP/1.1" 200 -
+2024-08-28 11:42:01,790 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:01] "GET /static/img/Neha%20Gupta.avif HTTP/1.1" 200 -
+2024-08-28 11:42:01,823 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:01] "GET /static/img/logo.png HTTP/1.1" 200 -
+2024-08-28 11:42:07,510 - werkzeug - INFO - 127.0.0.1 - - [28/Aug/2024 11:42:07] "[33mGET /static/img/favicon.ico HTTP/1.1[0m" 404 -
+2024-08-28 12:43:15,872 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-28 12:43:15,873 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-08-28 12:43:15,883 - werkzeug - INFO -  * Restarting with stat
+2024-08-28 12:43:26,389 - werkzeug - WARNING -  * Debugger is active!
+2024-08-28 12:43:26,415 - werkzeug - INFO -  * Debugger PIN: 681-469-826

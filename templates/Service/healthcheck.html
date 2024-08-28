@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+<title>Health Engine With AI Assistance</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="Health Engine With AI Assistance, Health Services" name="keywords">
+<meta content="Health Engine With AI Assistance provides various health services powered by AI." name="description">
+
+<!-- Add custom favicon -->
+<link rel="icon" href="/static/img/logo.png" type="image/png">
+
+<!-- Additional meta tags and links -->
+
+
+    <!-- Favicon -->
+    <link href="static/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="static/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="static/css/style.css" rel="stylesheet">
+    <style>
+        /* Style for the language selector */
+        .goog-te-menu-value {
+            color: #000 !important;
+            background-color: #f5f5f5 !important;
+            border: 1px solid #ccc !important;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        .autocomplete-suggestions { 
+            border: 1px solid #3b3636; 
+            border-bottom: none; 
+            border-top: none; 
+            z-index: 99; 
+            position: absolute; 
+            background-color: #3b3636; 
+            max-height: 150px; 
+            overflow-y: auto; 
+        } 
+        .autocomplete-suggestion { 
+            padding: 10px; 
+            cursor: pointer; 
+        } 
+        .autocomplete-suggestion:hover { 
+            background-color: #e9e9e9; 
+        } 
+        
+      </style>
+</head>
+
+<body>
+  
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,hi,bn,te,mr,ta,gu,kn,ml,pa', // Include the desired languages
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+          }, 'google_translate_element');
+        }
+      </script>
+      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- Topbar Start -->
+    <div class="container-fluid py-2 border-bottom d-none d-lg-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
+                    <div class="d-inline-flex align-items-center">
+                        <a class="text-decoration-none text-body pe-3" href=""><i class="bi bi-telephone me-2"></i>+918530269087</a>
+                        <span class="text-body">|</span>
+                        <a class="text-decoration-none text-body px-3" href=""><i class="bi bi-envelope me-2"></i>info@example.com</a>
+                        <a class="goog-te-menu-value "  id="google_translate_element"></a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center text-lg-end">
+                    <div class="d-inline-flex align-items-center">
+                        <a class="text-body px-2" href="">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a class="text-body px-2" href="">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a class="text-body px-2" href="">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a class="text-body px-2" href="">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a class="text-body ps-2" href="">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid sticky-top bg-white shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
+                <a href="#" class="navbar-brand">
+                    <h1 class="m-0 text-uppercase text-primary "><i class="fa fa-clinic-medical me-2"></i>Health Engine
+                        <p style="font-size: 15px;" class="text-end">With Ai Assistance</p>
+                    </h1>
+
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="/" class="nav-item nav-link ">Home</a>
+                        <a href="/healthcheck" class="nav-item nav-link active">Health Check</a>
+                        <a href="/medicine" class="nav-item nav-link">Medicine</a>
+                        <a href="{{ url_for('appointment') }}" class="nav-item nav-link">Appointments</a>
+                        <a href="/multiplediseases" class="nav-item nav-link">Multiple Diseases</a>
+                        <a href="/emotions" class="nav-item nav-link">Sentimental Health</a>
+                        {% if user_name %}
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> {% if user_image %}
+                                <img src="static/profile_images/{{ user_image }}" alt="{{ user_name }}" style="width:40px;height:40px;border-radius:50%;">
+                            {% else %}
+                                <i class="fas fa-user-circle" style="font-size:40px;"></i>  <!-- Default icon if no image -->
+                            {% endif %}</a>
+                            <div class="dropdown-menu m-0">
+                                <p class="dropdown-item">{{ user_name }}</p>
+                                <p class="dropdown-item">{{ user_email }}</p>
+                                <div class="dropdown-divider"></div>
+                                <a href="/profile" class="dropdown-item">Update profile</a>
+                                <a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a>
+                            </div> 
+                            {% else %}
+                                <a href="{{ url_for('login') }}" class="nav-item nav-link">Login/SignUp</a>
+                                  {% endif %}
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+    <div class="container my-5">
+        <div class="card bg-info text-white rounded-4 shadow-lg">
+            <div class="card-body p-5">
+                <h1 class="text-center mb-0 mt-0">Check Health</h1>
+                <p class="card-title text-center mb-4">Add Your Symptoms</p>
+                <form action="/predict" method="post">
+                    {% set symptoms = symptoms | sort %}
+                    <div class="mb-4">
+                        <label for="symptom1" class="form-label">Symptom 1:</label>
+                        <select class="form-select form-select-lg" id="symptom1" name="symptom1">
+                            {% for symptom in symptoms %}
+                            <option value="{{ symptom }}">{{ symptom }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="symptom2" class="form-label">Symptom 2:</label>
+                        <select class="form-select form-select-lg" id="symptom2" name="symptom2">
+                            {% for symptom in symptoms %}
+                            <option value="{{ symptom }}">{{ symptom }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="symptom3" class="form-label">Symptom 3:</label>
+                        <select class="form-select form-select-lg" id="symptom3" name="symptom3">
+                            {% for symptom in symptoms %}
+                            <option value="{{ symptom }}">{{ symptom }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="symptom4" class="form-label">Symptom 4:</label>
+                        <select class="form-select form-select-lg" id="symptom4" name="symptom4">
+                            {% for symptom in symptoms %}
+                            <option value="{{ symptom }}">{{ symptom }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-lg w-100">Predict</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        const symptoms = [
+           "", "itching", "skin_rash", "nodal_skin_eruptions", "continuous_sneezing", "shivering", "chills", "joint_pain", "stomach_pain", "acidity", "ulcers_on_tongue",
+            "muscle_wasting", "vomiting", "burning_micturition", "spotting_urination", "fatigue", "weight_gain", "anxiety", "cold_hands_and_feets", "mood_swings",
+            "weight_loss", "restlessness", "lethargy", "patches_in_throat", "irregular_sugar_level", "cough", "high_fever", "sunken_eyes", "breathlessness",
+            "sweating", "dehydration", "indigestion", "headache", "yellowish_skin", "dark_urine", "nausea", "loss_of_appetite", "pain_behind_the_eyes", "back_pain",
+            "constipation", "abdominal_pain", "diarrhoea", "mild_fever", "yellow_urine", "yellowing_of_eyes", "acute_liver_failure", "fluid_overload",
+            "swelling_of_stomach", "swelled_lymph_nodes", "malaise", "blurred_and_distorted_vision", "phlegm", "throat_irritation", "redness_of_eyes", "sinus_pressure",
+            "runny_nose", "congestion", "chest_pain", "weakness_in_limbs", "fast_heart_rate", "pain_during_bowel_movements", "pain_in_anal_region", "bloody_stool",
+            "irritation_in_anus", "neck_pain", "dizziness", "cramps", "bruising", "obesity", "swollen_legs", "swollen_blood_vessels", "puffy_face_and_eyes",
+            "enlarged_thyroid", "brittle_nails", "swollen_extremeties", "excessive_hunger", "extra_marital_contacts", "drying_and_tingling_lips", "slurred_speech",
+            "knee_pain", "hip_joint_pain", "muscle_weakness", "stiff_neck", "swelling_joints", "movement_stiffness", "spinning_movements", "loss_of_balance",
+            "unsteadiness", "weakness_of_one_body_side", "loss_of_smell", "bladder_discomfort", "foul_smell_ofurine", "continuous_feel_of_urine", "passage_of_gases",
+            "internal_itching", "toxic_look_(typhos)", "depression", "irritability", "muscle_pain", "altered_sensorium", "red_spots_over_body", "belly_pain",
+            "abnormal_menstruation", "dischromic_patches", "watering_from_eyes", "increased_appetite", "polyuria", "family_history", "mucoid_sputum", "rusty_sputum",
+            "lack_of_concentration", "visual_disturbances", "receiving_blood_transfusion", "receiving_unsterile_injections", "coma", "stomach_bleeding",
+            "distention_of_abdomen", "history_of_alcohol_consumption", "fluid_overload", "blood_in_sputum", "prominent_veins_on_calf", "palpitations", "painful_walking",
+            "pus_filled_pimples", "blackheads", "scurring", "skin_peeling", "silver_like_dusting", "small_dents_in_nails", "inflammatory_nails", "blister",
+            "red_sore_around_nose", "yellow_crust_ooze", "prognosis"
+        ];
+
+        const selectElements = ["symptom1", "symptom2", "symptom3", "symptom4"];
+
+        selectElements.forEach(selectId => {
+            const select = document.getElementById(selectId);
+            symptoms.forEach(symptom => {
+                const option = document.createElement("option");
+                option.value = symptom;
+                option.text = symptom.replace(/_/g, ' ');
+                select.appendChild(option);
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+  
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-light mt-5 py-5">
+    <div class="text-lg-end">
+        <a href="#home" class="btn btn-primary btn-page-up">
+            <i class="bi bi-arrow-up"></i>
+        </a>
+    </div>
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+                <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
+                    Get In Touch</h4>
+                <p class="mb-4">We are committed to providing exceptional service and support. Contact us for any inquiries or support.</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>123 MG Road, Mumbai, India</p>
+                <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>support@example.com</p>
+                <p class="mb-0"><i class="fa fa-phone-alt text-primary me-3"></i>+91 98765 43210</p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
+                    Quick Links</h4>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-light mb-2" href="/"><i class="fa fa-angle-right me-2"></i>Home</a>
+                    <a class="text-light mb-2" href="#about"><i class="fa fa-angle-right me-2"></i>About Us</a>
+                    <a class="text-light mb-2" href="#service"><i class="fa fa-angle-right me-2"></i>Our Services</a>
+                    <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Meet The Team</a>
+                    <a class="text-light mb-2" href="#blog"><i class="fa fa-angle-right me-2"></i>Latest Blog</a>
+                    <a class="text-light mb-2" href="/appointment"><i class="fa fa-angle-right me-2"></i>Book Appointment</a>
+                    <a class="text-light mb-2" href="/search_doctor"><i class="fa fa-angle-right me-2"></i>Find Doctors</a>
+                    <a class="text-light" href="#contact"><i class="fa fa-angle-right me-2"></i>Contact Us</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
+                    Follow Us</h4>
+                <div class="d-flex">
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
+                    Our Logo</h4>
+                <img src="/static/img/logo.png" alt="Your Logo" class="img-fluid">
+                <h6 class="text-primary text-uppercase mt-4 mb-3">YouTube Channal</h6>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/your-video-id" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-dark text-light border-top border-secondary py-4">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="mb-md-0">&copy; <a class="text-primary" href="#">Health Engine With Ai Assistancee</a>. All Rights Reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <p class="mb-0">Designed by <a class="text-primary" href="#">AI Care Solutions</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+ <!-- JavaScript Libraries -->
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="static/lib/easing/easing.min.js"></script>
+ <script src="static/lib/waypoints/waypoints.min.js"></script>
+ <script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
+ <script src="static/lib/tempusdominus/js/moment.min.js"></script>
+ <script src="static/lib/tempusdominus/js/moment-timezone.min.js"></script>
+ <script src="static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="static/js/main.js"></script>
+</body>
+
+</html>

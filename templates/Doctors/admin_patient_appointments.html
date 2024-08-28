@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+	<meta name="author" content="AdminKit">
+	<meta name="keywords"
+		content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+
+	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+	<title>Health Engine With Ai Assistancee</title>
+
+	<link href="/static/css/app.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<nav id="sidebar" class="sidebar js-sidebar">
+			<div class="sidebar-content js-simplebar">
+				<a class="sidebar-brand" href="#">
+					<img src="/static/img/logo.png" alt="Your Logo" class="img-fluid" style="margin-top: 15px;">
+				</a>
+
+				<ul class="sidebar-nav">
+					<li class="sidebar-header">
+						Admin Dashboard
+					</li>
+
+					<li class="sidebar-item " style="margin-top: 10px;padding-top: 10px;">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="sliders"></i> <span
+								class="align-middle">Dashboard</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{ url_for('register') }}">
+							<i class="align-middle" data-feather="user"></i> <span class="align-middle">Registration</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{ url_for('doctorprofile')}}">
+							<i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Profile</span>
+						</a>
+					</li>
+                    <li class="sidebar-item active">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle fa fa-notes-medical"></i> <span class="align-middle">Appointments</span>
+						</a>
+					</li>
+					<li class="sidebar-header" style="margin-top: 0%;"> Service </li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="square"></i> <span
+								class="align-middle">Diabetes</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Heart
+								Disease</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Kidney
+								Disease</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Liver
+								Disease</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i>
+							<span class="align-middle">Breast Cancer</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i>
+							<span class="align-middle">Blood Reports
+							</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Health
+								Check</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Medicine &
+								Pharmacy</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Sentimental
+								Health</span>
+						</a>
+					</li>
+
+
+				</ul>
+
+
+			</div>
+		</nav>
+
+        <div class="main">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand navbar-light navbar-bg">
+                <a class="sidebar-toggle js-sidebar-toggle">
+                    <i class="hamburger align-self-center"></i>
+                </a>
+        
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav navbar-align">
+                        <li class="nav-item dropdown">
+                            <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
+                                <i class="align-middle" data-feather="settings"></i>
+                            </a>
+                            {% if user_name %}
+                            <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+                                {% if user_image %}
+                                <img src="{{ url_for('static', filename='profile_images/' ~ user_image) }}" class="avatar img-fluid rounded me-1" alt="{{ user_name }}" />
+                                {% else %}
+                                <i class="fas fa-user-circle" style="font-size:40px;"></i>
+                                {% endif %}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="user"></i>{{ user_name }}</a>
+                                <a class="dropdown-item" href="#">{{ user_email }}</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ url_for('doctorprofile') }}"><i class="align-middle me-1" data-feather="settings"></i> Update profile</a>
+                                <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ url_for('logout') }}">Log out</a>
+                            </div>
+                            {% else %}
+                            <a href="{{ url_for('login') }}" class="nav-item nav-link">Login/SignUp</a>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+           <!-- Flash messages for success or error -->
+           {% with messages = get_flashed_messages(with_categories=true) %}
+           {% if messages %}
+               {% for category, message in messages %}
+                   <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                       {{ message }}
+                       <button type="button" class="btn-close text-end"  data-bs-dismiss="alert" aria-label="Close"></button>
+                   </div>
+               {% endfor %}
+           {% endif %}
+       {% endwith %}
+       
+            <div class="container mt-5">
+                <h1 class="mb-4">Appointments for Patient ID: {{ patient_id }}</h1>
+            
+                {% if appointments %}
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered align-middle">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Doctor Name</th>
+                                <th scope="col">Specialization</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for appointment in appointments %}
+                            <tr>
+                                <td>{{ appointment[2] }}</td>
+                                <td>{{ appointment[3] }}</td>
+                                <td>{{ appointment[4] }}</td>
+                                <td>{{ appointment[5] }}</td>
+                                <td>
+                                    <span class="text-primary badge badge-pill {% if appointment[6] == 'Approved' %}badge-success{% elif appointment[6] == 'Rejected' %}badge-danger{% else %}badge-secondary{% endif %}">
+                                        {{ appointment[6] }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <form method="POST" class="form-inline">
+                                        <input type="hidden" name="appointment_id" value="{{ appointment[0] }}">
+            
+                                        <div class="btn-group" role="group">
+                                            <button type="submit" name="action" value="approve" class="btn btn-success btn-sm">Approve</button>
+                                            <button type="submit" name="action" value="reject" class="btn btn-danger btn-sm">Reject</button>
+                                        </div>
+            
+                                        <div class="form-group mx-2">
+                                            <input type="date" class="form-control bg-white border-primary" placeholder="Date" name="new_date" style="height: 38px;" >
+                                        </div>
+            
+                                        <div class="form-group mx-2">
+                                            <select name="new_time" class="form-control bg-white border-primary" style="height: 38px;">
+                                                <option value="" disabled selected>Select Time</option>
+                                                <option value="08:00 AM">08:00 AM</option>
+                                                <option value="08:30 AM">08:30 AM</option>
+                                                <option value="09:00 AM">09:00 AM</option>
+                                                <option value="09:30 AM">09:30 AM</option>
+                                                <option value="10:00 AM">10:00 AM</option>
+                                                <option value="10:30 AM">10:30 AM</option>
+                                                <option value="11:00 AM">11:00 AM</option>
+                                                <option value="11:30 AM">11:30 AM</option>
+                                                <option value="12:00 PM">12:00 PM</option>
+                                                <option value="12:30 PM">12:30 PM</option>
+                                                <option value="01:00 PM">01:00 PM</option>
+                                                <option value="01:30 PM">01:30 PM</option>
+                                                <option value="02:00 PM">02:00 PM</option>
+                                                <option value="02:30 PM">02:30 PM</option>
+                                                <option value="03:00 PM">03:00 PM</option>
+                                                <option value="03:30 PM">03:30 PM</option>
+                                                <option value="04:00 PM">04:00 PM</option>
+                                                <option value="04:30 PM">04:30 PM</option>
+                                                <option value="05:00 PM">05:00 PM</option>
+                                                <option value="05:30 PM">05:30 PM</option>
+                                                <option value="06:00 PM">06:00 PM</option>
+                                                <option value="06:30 PM">06:30 PM</option>
+                                                <option value="07:00 PM">07:00 PM</option>
+                                                <option value="07:30 PM">07:30 PM</option>
+                                                <option value="08:00 PM">08:00 PM</option>
+                                                <option value="08:30 PM">08:30 PM</option>
+                                                <option value="09:00 PM">09:00 PM</option>
+                                            </select>
+                                        </div>
+            
+                                        <button type="submit" name="action" value="reschedule" class="btn btn-warning btn-sm">Reschedule</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="alert alert-info" role="alert">
+                    No appointments found.
+                </div>
+                {% endif %}
+            </div>
+            
+
+    
+    <script src="/static/js/app.js"></script>
+</body>
+
+</html>

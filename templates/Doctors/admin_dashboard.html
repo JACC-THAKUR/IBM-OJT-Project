@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+	<meta name="author" content="AdminKit">
+	<meta name="keywords"
+		content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+
+	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+	<title>Health Engine With Ai Assistancee</title>
+
+	<link href="/static/css/app.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<nav id="sidebar" class="sidebar js-sidebar">
+			<div class="sidebar-content js-simplebar">
+				<a class="sidebar-brand" href="#">
+					<img src="/static/img/logo.png" alt="Your Logo" class="img-fluid" style="margin-top: 15px;">
+				</a>
+
+				<ul class="sidebar-nav">
+					<li class="sidebar-header">
+						Doctors Dashboard
+					</li>
+
+					<li class="sidebar-item active" style="margin-top: 10px;padding-top: 10px;">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="sliders"></i> <span
+								class="align-middle">Dashboard</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{ url_for('doctorprofile') }}">
+							<i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{ url_for('add_patient')}}">
+							<i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Add
+								Patient</span>
+						</a>
+					</li>
+					<li class="sidebar-header" style="margin-top: 0%;"> Service </li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="square"></i> <span
+								class="align-middle">Diabetes</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Heart
+								Disease</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Kidney
+								Disease</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Liver
+								Disease</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i>
+							<span class="align-middle">Breast Cancer</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i>
+							<span class="align-middle">Blood Reports
+							</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Health
+								Check</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Medicine &
+								Pharmacy</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Sentimental
+								Health</span>
+						</a>
+					</li>
+
+
+				</ul>
+
+
+			</div>
+		</nav>
+
+		<div class="main">
+			<nav class="navbar navbar-expand navbar-light navbar-bg">
+				<a class="sidebar-toggle js-sidebar-toggle">
+					<i class="hamburger align-self-center"></i>
+				</a>
+
+				<div class="navbar-collapse collapse">
+					<ul class="navbar-nav navbar-align">
+						<li class="nav-item dropdown">
+							<a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#"
+								data-bs-toggle="dropdown">
+								<i class="align-middle" data-feather="settings"></i>
+							</a>
+							{% if user_name %}
+							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
+								data-bs-toggle="dropdown"> {% if user_image %}
+								<img src="static/profile_images/{{ user_image }}" class="avatar img-fluid rounded me-1"
+									alt="{{ user_name }}" /> {% else %}
+								<i class="fas fa-user-circle" style="font-size:40px;"></i>
+								{% endif %}
+							</a>
+							<div class="dropdown-menu dropdown-menu-end">
+								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="user"></i>
+									{{ user_name }}</a>
+								<a class="dropdown-item" href="#"></i>{{ user_email }}</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="{{ url_for('doctorprofile')}}"><i
+										class="align-middle me-1" data-feather="settings"></i> Update profile</a>
+								<a class="dropdown-item" href="#"><i class="align-middle me-1"
+										data-feather="help-circle"></i> Help Center</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="{{ url_for('logout') }}">Log out</a>
+								{% else %}
+								<a href="{{ url_for('login') }}" class="nav-item nav-link">Login/SignUp</a>
+							</div>
+							{% endif %}
+						</li>
+					</ul>
+				</div>
+			</nav>
+			{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+			<div class="">
+				{% for category, message in messages %}
+				<div class="alert alert-{{ category }}" role="alert">
+					{{ message }}
+				</div>
+				{% endfor %}
+			</div>
+			{% endif %}
+			{% endwith %}
+
+			<main class="content">
+				<div class="container-fluid p-0">
+
+					<h1 class="h3 mb-3"><strong>Doctors</strong> Dashboard</h1>
+
+					<div class="row">
+						<div class="col-xl-6 col-xxl-5 d-flex">
+							<div class="w-100">
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col mt-0">
+														<h5 class="card-title">Total Patients</h5>
+													</div>
+													<div class="col-auto">
+														<div class="stat text-primary">
+															<i class="align-middle" data-feather="users"></i>
+														</div>
+													</div>
+												</div>
+												<h1 class="mt-1 mb-3">{{ total_patients }}</h1>
+												<div class="mb-0">
+													<span class="text-success">+5%</span>
+													<span class="text-muted">Since last month</span>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col mt-0">
+														<h5 class="card-title">New Patients</h5>
+													</div>
+													<div class="col-auto">
+														<div class="stat text-primary">
+															<i class="align-middle" data-feather="user-plus"></i>
+														</div>
+													</div>
+												</div>
+												<h1 class="mt-1 mb-3">{{ new_patients }}</h1>
+												<div class="mb-0">
+													<span class="text-success">+10%</span>
+													<span class="text-muted">Since last week</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col mt-0">
+														<h5 class="card-title">Appointments</h5>
+													</div>
+													<div class="col-auto">
+														<div class="stat text-primary">
+															<i class="align-middle" data-feather="calendar"></i>
+														</div>
+													</div>
+												</div>
+												<h1 class="mt-1 mb-3">{{ total_appointments }}</h1>
+												<div class="mb-0">
+													<span class="text-danger">-2%</span>
+													<span class="text-muted">Since last week</span>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-body">
+												<div class="row">
+													<div class="col mt-0">
+														<h5 class="card-title">Pending Appointments</h5>
+													</div>
+													<div class="col-auto">
+														<div class="stat text-primary">
+															<i class="align-middle" data-feather="clock"></i>
+														</div>
+													</div>
+												</div>
+												<h1 class="mt-1 mb-3">{{ pending_appointments }}</h1>
+												<div class="mb-0">
+													<span class="text-warning">0%</span>
+													<span class="text-muted">No change</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xl-6 col-xxl-7">
+							<div class="card flex-fill w-100">
+								<div class="card-header">
+									<h5 class="card-title mb-0">Recent Patient Activities</h5>
+								</div>
+								<div class="card-body py-3">
+									<div class="chart chart-sm">
+										<canvas id="chartjs-patient-activities" height="100px"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+					<div class="row">
+
+						<div class="col-12 col-md-6 col-xxl-3 d-flex order-2 order-xxl-3">
+							<div class="card flex-fill w-100">
+								<div class="card-header">
+									<h5 class="card-title mb-0">Patient Statistics</h5>
+								</div>
+								<div class="card-body d-flex">
+									<div class="align-self-center w-100">
+										<div class="py-3">
+											<div class="chart chart-xs">
+												<!-- Increase the width and height of the canvas here -->
+												<canvas id="chartjs-patient-statistics" width="280"
+													height="280"></canvas>
+											</div>
+										</div>
+
+										<table class="table mb-0">
+											<tbody>
+												<tr>
+													<td>Total Patients</td>
+													<td class="text-end">{{ total_patients }}</td>
+												</tr>
+												<tr>
+													<td>New Patients</td>
+													<td class="text-end">{{ new_patients }}</td>
+												</tr>
+												<tr>
+													<td>Appointments</td>
+													<td class="text-end">{{ total_appointments }}</td>
+												</tr>
+												<tr>
+													<td>Pending Appointments</td>
+													<td class="text-end">{{ pending_appointments }}</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12 col-md-12 col-xxl-6 d-flex order-3 order-xxl-2">
+							<div class="card flex-fill w-100">
+								<div class="card-header">
+
+									<h5 class="card-title mb-0">Real-Time</h5>
+								</div>
+								<div class="card-body px-4">
+									<div id="world_map" style="height:350px;"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-md-6 col-xxl-3 d-flex order-1 order-xxl-1">
+							<div class="card flex-fill">
+								<div class="card-header">
+
+									<h5 class="card-title mb-0">Calendar</h5>
+								</div>
+								<div class="card-body d-flex">
+									<div class="align-self-center w-100">
+										<div class="chart">
+											<div id="datetimepicker-dashboard"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-12 col-lg-8 col-xxl-9 d-flex">
+							<div class="card flex-fill">
+								<div class="card-header">
+
+									<h5 class="card-title mb-0">Patients</h5>
+								</div>
+
+								<table class="table table-hover my-0">
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>Name</th>
+											<th>Image</th>
+											<th>Email</th>
+											<th>Height</th>
+											<th>Weight</th>
+											<th>Age</th>
+											<th>Gender</th>
+											<th>Actions</th>
+											<th>Appointments</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for patient in patients %}
+										<tr>
+											<td>{{ patient[0] }}</td>
+											<td>{{ patient[1] }}</td>
+											<td>
+												<img src="{{ url_for('static', filename='profile_images/' + (patient[5] or 'default_image.jpg')) }}"
+													alt="Image" class="img-thumbnail"
+													style="width: 50px; height: 50px; border-radius: 50%;">
+											</td>
+											<td>{{ patient[2] }}</td>
+											<td>{{ patient[3] }}</td>
+											<td>{{ patient[4] }}</td>
+											<td>{{ patient[7] }}</td>
+											<td>{{ patient[8] }}</td>
+											<td>
+												<a href="{{ url_for('view_patient', patient_id=patient[0]) }}"
+													class="btn btn-info btn-sm btn-custom" title="View">
+													<i class="fas fa-eye"></i>
+												</a>
+												<a href="{{ url_for('update_patient', patient_id=patient[0]) }}"
+													class="btn btn-warning btn-sm btn-custom" title="Update">
+													<i class="fas fa-edit"></i>
+												</a>
+												<form action="{{ url_for('delete_patient', patient_id=patient[0]) }}"
+													method="post" style="display:inline;">
+													<button type="submit" class="btn btn-danger btn-sm btn-custom"
+														title="Delete">
+														<i class="fas fa-trash-alt"></i>
+													</button>
+												</form>
+											</td>
+											<td>
+												<a href="{{ url_for('admin_patient_appointments', patient_id=patient[0]) }}"
+													class="btn btn-primary btn-sm btn-custom" title="View Appointments">
+													<i class="fas fa-calendar-alt"></i>
+												</a>
+											</td>
+										</tr>
+										{% endfor %}
+									</tbody>
+									<tfoot>
+										<tr>
+											<td colspan="10" class="text-right">
+												<strong>Total Patients: {{ patients|length }}</strong>
+											</td>
+										</tr>
+									</tfoot>
+								</table>
+
+
+							</div>
+						</div>
+
+						<!-- Include Chart.js library -->
+						<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+						<div class="col-12 col-lg-4 col-xxl-3 d-flex">
+							<div class="card flex-fill w-100">
+								<div class="card-header">
+									<h5 class="card-title mb-0">Monthly New Patients</h5>
+								</div>
+								<div class="card-body d-flex w-100">
+									<div class="align-self-center chart chart-lg">
+										<canvas id="chartjs-dashboard-bar" height="400px"></canvas>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</main>
+
+
+		</div>
+	</div>
+
+	<script src="/static/js/app.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			var ctx = document.getElementById('chartjs-patient-activities').getContext('2d');
+			var chart = new Chart(ctx, {
+				type: 'line',
+				data: {
+					labels: {{ recent_activities.labels | safe }},
+			datasets: [{
+				label: 'Patient Activities',
+				data: {{ recent_activities.data | safe }},
+			borderColor: 'rgba(75, 192, 192, 1)',
+			backgroundColor: 'rgba(75, 192, 192, 0.2)',
+			borderWidth: 1,
+			fill: true,
+					}]
+				},
+			options: {
+			responsive: true,
+			scales: {
+				y: {
+					beginAtZero: true
+				}
+			}
+		}
+			});
+		});
+	</script>
+	<script>
+		var ctx = document.getElementById('chartjs-patient-statistics').getContext('2d');
+		new Chart(ctx, {
+			type: 'pie', // Or any other chart type
+			data: {
+				labels: ['Total Patients', 'New Patients', 'Appointments', 'Pending Appointments'],
+				datasets: [{
+					data: [{{ total_patients }}, {{ new_patients }}, {{ total_appointments }}, {{ pending_appointments }}],
+			backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#FF5722']
+				}]
+			},
+			options: {
+			responsive: true,
+			maintainAspectRatio: false, // Allows the chart to fill its container
+			plugins: {
+				legend: {
+					position: 'top',
+				},
+				tooltip: {
+					callbacks: {
+						label: function (context) {
+							var label = context.label || '';
+							if (label) {
+								label += ': ' + context.raw;
+							}
+							return label;
+						}
+					}
+				}
+			}
+		}
+		});
+	</script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			var ctx = document.getElementById('chartjs-dashboard-bar').getContext('2d');
+			new Chart(ctx, {
+				type: 'bar',
+				data: {
+					labels: {{ recent_activities.labels | tojson }},
+			datasets: [{
+				label: 'New Patients',
+				data: {{ recent_activities.data | tojson }},
+			backgroundColor: 'rgba(75, 192, 192, 0.2)',
+			borderColor: 'rgba(75, 192, 192, 1)',
+			borderWidth: 1
+}]
+},
+			options: {
+			responsive: true,
+			plugins: {
+				legend: {
+					position: 'top',
+				},
+				tooltip: {
+					callbacks: {
+						label: function (context) {
+							var label = context.dataset.label || '';
+							if (label) {
+								label += ': ' + context.raw;
+							}
+							return label;
+						}
+					}
+				}
+			},
+			scales: {
+				x: {
+					beginAtZero: true,
+					title: {
+						display: true,
+						text: 'Month'
+					}
+				},
+				y: {
+					beginAtZero: true,
+					title: {
+						display: true,
+						text: 'Number of Patients'
+					}
+				}
+			}
+		}
+});
+});
+	</script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			// Default markers
+			var markers = [
+				{ coords: [31.230391, 121.473701], name: "Shanghai" },
+				{ coords: [28.704060, 77.102493], name: "Delhi" },
+				{ coords: [6.524379, 3.379206], name: "Lagos" },
+				{ coords: [35.689487, 139.691711], name: "Tokyo" },
+				{ coords: [23.129110, 113.264381], name: "Guangzhou" },
+				{ coords: [40.7127837, -74.0059413], name: "New York" },
+				{ coords: [34.052235, -118.243683], name: "Los Angeles" },
+				{ coords: [41.878113, -87.629799], name: "Chicago" },
+				{ coords: [51.507351, -0.127758], name: "London" },
+				{ coords: [40.416775, -3.703790], name: "Madrid" }
+			];
+
+			// Initialize map
+			var map = new jsVectorMap({
+				map: "world",
+				selector: "#world_map",
+				zoomButtons: true,
+				markers: markers,
+				markerStyle: {
+					initial: {
+						r: 9,
+						strokeWidth: 7,
+						stokeOpacity: .4,
+						fill: window.theme.primary
+					},
+					hover: {
+						fill: window.theme.primary,
+						stroke: window.theme.primary
+					}
+				},
+				zoomOnScroll: false
+			});
+
+			// Update map size on window resize
+			window.addEventListener("resize", () => {
+				map.updateSize();
+			});
+
+			// Set default date in the date picker
+			var date = new Date();
+			var defaultDate = date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate();
+			document.getElementById("datetimepicker-dashboard").flatpickr({
+				inline: true,
+				prevArrow: "<span title='Previous month'>&laquo;</span>",
+				nextArrow: "<span title='Next month'>&raquo;</span>",
+				defaultDate: defaultDate
+			});
+
+			// Display user's current location
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function (position) {
+					var lat = position.coords.latitude;
+					var lon = position.coords.longitude;
+					document.getElementById("location").innerText = "Your current location: Latitude " + lat + ", Longitude " + lon;
+
+					// Add a marker for the user's location
+					map.addMarkers([{ coords: [lat, lon], name: "Your Location" }]);
+				});
+			} else {
+				document.getElementById("location").innerText = "Geolocation is not supported by this browser.";
+			}
+		});
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.2.2/dist/js/jsvectormap.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/jsvectormap@1.2.2/dist/css/jsvectormap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</body>
+
+</html>

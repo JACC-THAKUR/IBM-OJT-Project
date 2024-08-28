@@ -1,0 +1,15 @@
+.price-carousel .owl-nav button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    color: #000;
+}
+.price-carousel .owl-nav button.owl-prev {
+    left: -35px;
+}
+.price-carousel .owl-nav button.owl-next {
+    right: -35px;
+}

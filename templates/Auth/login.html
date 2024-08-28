@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Health Engine With Ai Assistancee</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="../../static/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../../static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../../static/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="../../static/css/style.css" rel="stylesheet">
+    <style>
+        /* Style for the language selector */
+        #google_translate_element {
+            float: right;
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,hi,bn,te,mr,ta,gu,kn,ml,pa', // Include the desired languages
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- Topbar Start -->
+    <div class="container-fluid py-2 border-bottom d-none d-lg-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
+                    <div class="d-inline-flex align-items-center">
+                        <a class="text-decoration-none text-body pe-3" href=""><i
+                                class="bi bi-telephone me-2"></i>+918530269087</a>
+                        <span class="text-body">|</span>
+                        <a class="text-decoration-none text-body px-3" href=""><i
+                                class="bi bi-envelope me-2"></i>info@example.com</a>
+                        <a class="text-decoration-none text-body px-3" id="google_translate_element"></a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center text-lg-end">
+                    <div class="d-inline-flex align-items-center">
+                        <a class="text-body px-2" href="">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a class="text-body px-2" href="">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a class="text-body px-2" href="">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a class="text-body px-2" href="">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a class="text-body ps-2" href="">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid sticky-top bg-white shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
+                <a href="#" class="navbar-brand">
+                    <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-clinic-medical me-2"></i>Health Engine<p
+                            style="font-size: 15px;" class="text-end">With Ai Assistancee</p>
+                    </h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="/" class="nav-item nav-link ">Home</a>
+
+                        {% if user_name %}
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> {% if user_image %}
+                                <img src="{{ user_image }}" alt="{{ user_name }}"
+                                    style="width:40px;height:40px;border-radius:50%;">
+                                {% else %}
+                                <i class="fas fa-user-circle" style="font-size:40px;"></i>
+                                <!-- Default icon if no image -->
+                                {% endif %}</a>
+                            <div class="dropdown-menu m-0">
+                                <p class="dropdown-item">{{ user_name }}</p>
+                                <p class="dropdown-item">{{ user_email }}</p>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a>
+                            </div>
+                            {% else %}
+                            <a href="{{ url_for('signup') }}" class="nav-item nav-link active">Sign Up</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+    <div class="container mt-5">
+       
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="">
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" id="loginTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="user-login-tab" data-toggle="tab" href="#user-login" role="tab"
+                    aria-controls="user-login" aria-selected="true">User Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="doctor-login-tab" data-toggle="tab" href="#doctor-login" role="tab"
+                    aria-controls="doctor-login" aria-selected="false">Doctor Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="admin-login-tab" data-toggle="tab" href="#admin-login" role="tab"
+                    aria-controls="admin-login" aria-selected="false">Admin Login</a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- User Login -->
+            <div class="tab-pane fade show active" id="user-login" role="tabpanel" aria-labelledby="user-login-tab">
+                <form method="post" action="{{ url_for('login', user_type='user') }}">
+                    <div class="form-group mt-3">
+                        <label for="user_login_input">Username or Email:</label>
+                        <input type="text" name="login_input" id="user_login_input" class="form-control" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="user_password ">Password:</label>
+                        <input type="password" name="password" id="user_password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">User Login</button>
+                </form>
+            </div>
+
+            <!-- Doctor Login -->
+            <div class="tab-pane fade" id="doctor-login" role="tabpanel" aria-labelledby="doctor-login-tab">
+                <form method="post" action="{{ url_for('login', user_type='doctor') }}">
+                    <div class="form-group mt-3">
+                        <label for="doctor_login_input ">Username or Email:</label>
+                        <input type="text" name="login_input" id="doctor_login_input" class="form-control" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="doctor_password">Password:</label>
+                        <input type="password" name="password" id="doctor_password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Doctor Login</button>
+                </form>
+            </div>
+
+            <!-- Admin Login -->
+            <div class="tab-pane fade" id="admin-login" role="tabpanel" aria-labelledby="admin-login-tab">
+                <form method="post" action="{{ url_for('login', user_type='admin') }}">
+                    <div class="form-group mt-3">
+                        <label for="admin_login_input">Username or Email:</label>
+                        <input type="text" name="login_input" id="admin_login_input" class="form-control" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="admin_password">Password:</label>
+                        <input type="password" name="password" id="admin_password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Admin Login</button>
+                </form>
+            </div>
+        </div>
+
+        <p class="mt-3">
+            Don't have an account? <a href="{{ url_for('signup') }}">Sign up here</a>
+        </p>
+        <p class="mt-2">
+            <a href="{{ url_for('forgot_password') }}">Forgot your password?</a>
+        </p>
+    </div>
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light mt-5 py-5">
+        <div class="text-lg-end">
+            <a href="#home" class="btn btn-primary btn-page-up">
+                <i class="bi bi-arrow-up"></i>
+            </a>
+        </div>
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
+                        Get In Touch</h4>
+                    <p class="mb-4">We are committed to providing exceptional service and support. Contact us for any
+                        inquiries or support.</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>123 MG Road, Mumbai, India</p>
+                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>support@example.com</p>
+                    <p class="mb-0"><i class="fa fa-phone-alt text-primary me-3"></i>+91 98765 43210</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
+                        Quick Links</h4>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-light mb-2" href="/"><i class="fa fa-angle-right me-2"></i>Home</a>
+                        <a class="text-light mb-2" href="#about"><i class="fa fa-angle-right me-2"></i>About Us</a>
+                        <a class="text-light mb-2" href="#service"><i class="fa fa-angle-right me-2"></i>Our
+                            Services</a>
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Meet The Team</a>
+                        <a class="text-light mb-2" href="#blog"><i class="fa fa-angle-right me-2"></i>Latest Blog</a>
+                        <a class="text-light mb-2" href="/appointment"><i class="fa fa-angle-right me-2"></i>Book
+                            Appointment</a>
+                        <a class="text-light mb-2" href="/search_doctor"><i class="fa fa-angle-right me-2"></i>Find
+                            Doctors</a>
+                        <a class="text-light" href="#contact"><i class="fa fa-angle-right me-2"></i>Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
+                        Follow Us</h4>
+                    <div class="d-flex">
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i
+                                class="fab fa-twitter"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="#"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
+                        Our Logo</h4>
+                    <img src="/static/img/logo.png" alt="Your Logo" class="img-fluid">
+                    <h6 class="text-primary text-uppercase mt-4 mb-3">YouTube Channal</h6>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/your-video-id"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-light border-top border-secondary py-4">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-md-0">&copy; <a class="text-primary" href="#">Health Engine With Ai Assistancee</a>.
+                        All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed by <a class="text-primary" href="#">AI Care Solutions</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../../static/lib/easing/easing.min.js"></script>
+    <script src="../../static/lib/waypoints/waypoints.min.js"></script>
+    <script src="../../static/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../../static/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="../../static/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="../../static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../../static/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+	<meta name="author" content="AdminKit">
+	<meta name="keywords"
+		content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+
+	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+	<title>Health Engine With Ai Assistancee</title>
+
+	<link href="/static/css/app.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<nav id="sidebar" class="sidebar js-sidebar">
+			<div class="sidebar-content js-simplebar">
+				<a class="sidebar-brand" href="index.html">
+					<img src="/static/img/logo.png" alt="Your Logo" class="img-fluid" style="margin-top: 15px;">
+				</a>
+
+				<ul class="sidebar-nav">
+					<li class="sidebar-header">
+						Doctors Dashboard
+					</li>
+
+					<li class="sidebar-item" style="margin-top: 10px;padding-top: 10px;">
+						<a class="sidebar-link" href="/">
+							<i class="align-middle" data-feather="sliders"></i> <span
+								class="align-middle">Dashboard</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{ url_for('doctorprofile') }}">
+							<i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{ url_for('add_patient')}}">
+							<i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Add
+								Patient</span>
+						</a>
+					</li>
+                    <li class="sidebar-item active">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Update Patient</span>
+						</a>
+					</li>
+                
+					<li class="sidebar-header" style="margin-top: 0%;"> Service </li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="square"></i> <span
+								class="align-middle">Diabetes</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Heart
+								Disease</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Kidney
+								Disease</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Liver
+								Disease</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i>
+							<span class="align-middle">Breast Cancer</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i>
+							<span class="align-middle">Blood Reports
+							</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Health
+								Check</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Medicine &
+								Pharmacy</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Sentimental
+								Health</span>
+						</a>
+					</li>
+
+
+				</ul>
+
+
+			</div>
+		</nav>
+
+		<div class="main">
+			<nav class="navbar navbar-expand navbar-light navbar-bg">
+				<a class="sidebar-toggle js-sidebar-toggle">
+					<i class="hamburger align-self-center"></i>
+				</a>
+
+				<div class="navbar-collapse collapse">
+					<ul class="navbar-nav navbar-align">
+						<li class="nav-item dropdown">
+							<a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#"
+								data-bs-toggle="dropdown">
+								<i class="align-middle" data-feather="settings"></i>
+							</a>
+							{% if user_name %}
+							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
+								data-bs-toggle="dropdown"> {% if user_image %}
+								<img src="/static/profile_images/{{ user_image }}" class="avatar img-fluid rounded me-1"
+									alt="{{ user_name }}" /> {% else %}
+								<i class="fas fa-user-circle" style="font-size:40px;"></i>
+								{% endif %}
+							</a>
+							<div class="dropdown-menu dropdown-menu-end">
+								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="user"></i>
+									{{ user_name }}</a>
+								<a class="dropdown-item" href="#"></i>{{ user_email }}</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="{{ url_for('doctorprofile')}}"><i
+										class="align-middle me-1" data-feather="settings"></i> Update profile</a>
+								<a class="dropdown-item" href="#"><i class="align-middle me-1"
+										data-feather="help-circle"></i> Help Center</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="{{ url_for('logout') }}">Log out</a>
+								{% else %}
+								<a href="{{ url_for('login') }}" class="nav-item nav-link">Login/SignUp</a>
+							</div>
+							{% endif %}
+						</li>
+					</ul>
+				</div>
+			</nav>
+			{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+			<div class="">
+				{% for category, message in messages %}
+				<div class="alert alert-{{ category }}" role="alert">
+					{{ message }}
+				</div>
+				{% endfor %}
+			</div>
+			{% endif %}
+			{% endwith %}
+
+    <div class="container">
+        <h1 class="text-center text-primary mt-4">Update Patient Information</h1>
+
+        <!-- Display any flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="alert alert-{{ messages[0][0] }}" role="alert">
+                {{ messages[0][1] }}
+            </div>
+        {% endif %}
+        {% endwith %}
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" class="form-control" value="{{ patient[1] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" class="form-control" value="{{ patient[2] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="height">Height:</label>
+                <input type="text" name="height" id="height" class="form-control" value="{{ patient[3] }}">
+            </div>
+            <div class="form-group">
+                <label for="weight">Weight:</label>
+                <input type="text" name="weight" id="weight" class="form-control" value="{{ patient[4] }}">
+            </div>
+            <div class="form-group">
+                <label for="image">Upload New Image:</label>
+                <input type="file" name="image" id="image" class="form-control">
+                <input type="hidden" name="current_image" value="{{ patient[5] }}">
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Update</button>
+        </form>
+    </div>
+ <!-- Footer Start -->
+<script src="/static/js/app.js"></script>
+
+
+<!-- Back to Top -->
+
+
+
+</body>
+
+</html>

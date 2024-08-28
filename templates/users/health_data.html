@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Health Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/dist/fullcalendar.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/dist/fullcalendar.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="text-center my-4">
+            <h1>{{ user_data.name }}'s Health Dashboard</h1>
+            <img src="/static/profile_images/{{ user_data.image }}" class="img-fluid rounded-circle" alt="{{ user_data.name }}">
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Weight Comparison</h3>
+                <canvas id="weightComparisonChart"></canvas>
+            </div>
+            <div class="col-md-6">
+                <h3>Activity & Diet Overview</h3>
+                <canvas id="activityDietComparisonChart"></canvas>
+            </div>
+        </div>
+
+        <div class="row my-4">
+            <div class="col-md-6">
+                <h3>Health Habits Comparison</h3>
+                <canvas id="habitsComparisonChart"></canvas>
+            </div>
+            <div class="col-md-6">
+                <h3>Yearly Stress Levels Comparison</h3>
+                <canvas id="stressComparisonChart"></canvas>
+            </div>
+        </div>
+
+        <div class="my-4">
+            <h3>Health Monitoring Calendar</h3>
+            <div id="calendar"></div>
+        </div>
+
+        <div class="alert alert-info">
+            <h4>Health Tips:</h4>
+            <ul>
+                {% for tip in health_tips %}
+                    <li>{{ tip }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const healthData = {{ health_data | tojson }};
+            const exampleData = {{ example_data | tojson }};
+            const years = exampleData.years;
+
+            // Weight Comparison Chart
+            const weightComparisonChartCtx = document.getElementById('weightComparisonChart').getContext('2d');
+            new Chart(weightComparisonChartCtx, {
+                type: 'line',
+                data: {
+                    labels: years,
+                    datasets: [
+                        {
+                            label: 'User Weight',
+                            data: [healthData.weight, healthData.weight, healthData.weight, healthData.weight], // Replace with actual data for different years if available
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        },
+                        {
+                            label: 'Example Weight',
+                            data: exampleData.weights,
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Activity & Diet Overview Chart
+            const activityDietComparisonChartCtx = document.getElementById('activityDietComparisonChart').getContext('2d');
+            new Chart(activityDietComparisonChartCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Activity', 'Diet'],
+                    datasets: [{
+                        label: 'User Data',
+                        data: [healthData.activity === 'High' ? 1 : 0, healthData.diet === 'Balanced' ? 1 : 0],  // Adjust based on your data
+                        backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 206, 86, 0.2)'],
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+
+            // Health Habits Comparison Chart
+            const habitsComparisonChartCtx = document.getElementById('habitsComparisonChart').getContext('2d');
+            new Chart(habitsComparisonChartCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Smoking', 'Alcohol'],
+                    datasets: [{
+                        label: 'Health Habits',
+                        data: [
+                            healthData.smoking === 'Yes' ? 1 : 0,
+                            healthData.alcohol === 'Yes' ? 1 : 0
+                        ],
+                        backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)'],
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+
+            // Stress Comparison Chart
+            const stressComparisonChartCtx = document.getElementById('stressComparisonChart').getContext('2d');
+            new Chart(stressComparisonChartCtx, {
+                type: 'bar',
+                data: {
+                    labels: years,
+                    datasets: [
+                        {
+                            label: 'User Stress Levels',
+                            data: [healthData.stress, healthData.stress, healthData.stress, healthData.stress], // Replace with actual data for different years if available
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                        },
+                        {
+                            label: 'Example Stress Levels',
+                            data: exampleData.stress,
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // FullCalendar Initialization
+            const calendarEl = document.getElementById('calendar');
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                events: [
+                    {
+                        title: 'Health Checkup',
+                        start: '2023-08-01',
+                        end: '2023-08-01'
+                    },
+                    {
+                        title: 'Consultation',
+                        start: '2023-08-15',
+                        end: '2023-08-15'
+                    }
+                ]
+            });
+            calendar.render();
+        });
+    </script>
+</body>
+</html>

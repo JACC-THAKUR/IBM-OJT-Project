@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+	<meta name="author" content="AdminKit">
+	<meta name="keywords"
+		content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+
+	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+	<title>Health Engine With Ai Assistancee</title>
+
+	<link href="/static/css/app.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<nav id="sidebar" class="sidebar js-sidebar">
+			<div class="sidebar-content js-simplebar">
+				<a class="sidebar-brand" href="#">
+					<img src="/static/img/logo.png" alt="Your Logo" class="img-fluid" style="margin-top: 15px;">
+				</a>
+
+				<ul class="sidebar-nav">
+					<li class="sidebar-header">
+						Admin Dashboard
+					</li>
+
+					<li class="sidebar-item active" style="margin-top: 10px;padding-top: 10px;">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="sliders"></i> <span
+								class="align-middle">Dashboard</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{ url_for('register') }}">
+							<i class="align-middle" data-feather="user"></i> <span class="align-middle">Registration</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{ url_for('profile')}}">
+							<i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Profile</span>
+						</a>
+					</li>
+					<li class="sidebar-header" style="margin-top: 0%;"> Service </li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="square"></i> <span
+								class="align-middle">Diabetes</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Heart
+								Disease</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Kidney
+								Disease</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Liver
+								Disease</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i>
+							<span class="align-middle">Breast Cancer</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i>
+							<span class="align-middle">Blood Reports
+							</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Health
+								Check</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Medicine &
+								Pharmacy</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Sentimental
+								Health</span>
+						</a>
+					</li>
+
+
+				</ul>
+
+
+			</div>
+		</nav>
+
+        <div class="main">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand navbar-light navbar-bg">
+                <a class="sidebar-toggle js-sidebar-toggle">
+                    <i class="hamburger align-self-center"></i>
+                </a>
+        
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav navbar-align">
+                        <li class="nav-item dropdown">
+                            <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
+                                <i class="align-middle" data-feather="settings"></i>
+                            </a>
+                            {% if user_name %}
+                            <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+                                {% if user_image %}
+                                <img src="{{ url_for('static', filename='profile_images/' ~ user_image) }}" class="avatar img-fluid rounded me-1" alt="{{ user_name }}" />
+                                {% else %}
+                                <i class="fas fa-user-circle" style="font-size:40px;"></i>
+                                {% endif %}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="user"></i>{{ user_name }}</a>
+                                <a class="dropdown-item" href="#">{{ user_email }}</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ url_for('doctorprofile') }}"><i class="align-middle me-1" data-feather="settings"></i> Update profile</a>
+                                <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ url_for('logout') }}">Log out</a>
+                            </div>
+                            {% else %}
+                            <a href="{{ url_for('login') }}" class="nav-item nav-link">Login/SignUp</a>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        
+            <!-- Admin Dashboard Header -->
+   
+       
+        
+            <!-- Dashboard Content -->
+            <div class="container mt-5">
+                <div class="row">
+                    <!-- Doctors vs Users Chart -->
+                    <div class="col-md-6">
+                        <h3>Doctors vs Users</h3>
+                        <canvas id="doctorsUsersChart"></canvas>
+                    </div>
+        
+                    <!-- Specializations Chart -->
+                    <div class="col-md-6 container">
+                        <canvas id="specializationChart"></canvas>
+                    </div>
+                </div>
+        
+                <!-- Doctors and Users Tables -->
+                <div class="row mt-5">
+                    <!-- Doctors Table -->
+                    <div class="col-md-12">
+                        <h3>Doctors</h3>
+                        <p>Total Doctors: {{ num_doctors }}</p>
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Specialization</th>
+                                    <th>Qualifications</th>
+                                    <th>Experience</th>
+                                    <th>Phone</th>
+                                    <th>Clinic Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for doctor in doctors %}
+                                <tr>
+                                    <td>{{ doctor[0] }}</td>
+                                    <td>
+                                        {% if doctor[8] %}
+                                        <img src="{{ url_for('static', filename='profile_images/' ~ doctor[8]) }}" alt="Doctor Image" width="50" class="img-thumbnail">
+                                        {% else %}
+                                        <i class="fas fa-user-circle" style="font-size: 40px;"></i>
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ doctor[1] }}</td>
+                                    <td>{{ doctor[2] }}</td>
+                                    <td>{{ doctor[14] }}</td>
+                                    <td>{{ doctor[15] }}</td>
+                                    <td>{{ doctor[16] }}</td>
+                                    <td>{{ doctor[17] }}</td>
+                                    <td>{{ doctor[18] }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+        
+                    <!-- Users Table -->
+                    <div class="col-md-12 mt-4">
+                        <h3>Users</h3>
+                        <p>Total Users: {{ num_users }}</p>
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Height</th>
+                                    <th>Weight</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for user in users %}
+                                <tr>
+                                    <td>{{ user[0] }}</td>
+                                    <td>
+                                        {% if user[8] %}
+                                        <img src="{{ url_for('static', filename='profile_images/' ~ user[8]) }}" alt="User Image" width="50" class="img-thumbnail">
+                                        {% else %}
+                                        <i class="fas fa-user-circle" style="font-size: 40px;"></i>
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ user[1] }}</td>
+                                    <td>{{ user[2] }}</td>
+                                    <td>{{ user[6] }}</td>
+                                    <td>{{ user[7] }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+	<script src="/static/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	
+    <script>
+        // Data for the doctors vs users chart
+        var doctorsUsersChart = new Chart(document.getElementById('doctorsUsersChart').getContext('2d'), {
+    type: 'doughnut',
+    data: {
+        labels: ['Doctors', 'Users'],
+        datasets: [{
+            data: [{{ num_doctors }}, {{ num_users }}],
+            backgroundColor: ['#007bff', '#ffc107']
+        }]
+    },
+    options: {
+        plugins: {
+            legend: {
+                display: true
+            }
+        },
+        elements: {
+            arc: {
+                borderWidth: 1 // Adjust border width if needed
+            }
+        },
+        cutout: '60%' // Decrease the size of the doughnut by increasing the cutout percentage
+    }
+});
+
+          // Data for the specialization chart
+    var specializationData = {
+        labels: [{% for specialization in specializations %}'{{ specialization[0] }}',{% endfor %}],
+        datasets: [{
+            label: 'Specializations',
+            data: [{% for specialization in specializations %}{{ specialization[1] }},{% endfor %}],
+            backgroundColor: '#28a745'
+        }]
+    };
+
+    var specializationChart = new Chart(document.getElementById('specializationChart').getContext('2d'), {
+        type: 'bar',
+        data: specializationData,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    </script>
+
+
+
+
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			// Default markers
+			var markers = [
+				{ coords: [31.230391, 121.473701], name: "Shanghai" },
+				{ coords: [28.704060, 77.102493], name: "Delhi" },
+				{ coords: [6.524379, 3.379206], name: "Lagos" },
+				{ coords: [35.689487, 139.691711], name: "Tokyo" },
+				{ coords: [23.129110, 113.264381], name: "Guangzhou" },
+				{ coords: [40.7127837, -74.0059413], name: "New York" },
+				{ coords: [34.052235, -118.243683], name: "Los Angeles" },
+				{ coords: [41.878113, -87.629799], name: "Chicago" },
+				{ coords: [51.507351, -0.127758], name: "London" },
+				{ coords: [40.416775, -3.703790], name: "Madrid" }
+			];
+
+			// Initialize map
+			var map = new jsVectorMap({
+				map: "world",
+				selector: "#world_map",
+				zoomButtons: true,
+				markers: markers,
+				markerStyle: {
+					initial: {
+						r: 9,
+						strokeWidth: 7,
+						stokeOpacity: .4,
+						fill: window.theme.primary
+					},
+					hover: {
+						fill: window.theme.primary,
+						stroke: window.theme.primary
+					}
+				},
+				zoomOnScroll: false
+			});
+
+			// Update map size on window resize
+			window.addEventListener("resize", () => {
+				map.updateSize();
+			});
+
+			// Set default date in the date picker
+			var date = new Date();
+			var defaultDate = date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate();
+			document.getElementById("datetimepicker-dashboard").flatpickr({
+				inline: true,
+				prevArrow: "<span title='Previous month'>&laquo;</span>",
+				nextArrow: "<span title='Next month'>&raquo;</span>",
+				defaultDate: defaultDate
+			});
+
+			// Display user's current location
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function (position) {
+					var lat = position.coords.latitude;
+					var lon = position.coords.longitude;
+					document.getElementById("location").innerText = "Your current location: Latitude " + lat + ", Longitude " + lon;
+
+					// Add a marker for the user's location
+					map.addMarkers([{ coords: [lat, lon], name: "Your Location" }]);
+				});
+			} else {
+				document.getElementById("location").innerText = "Geolocation is not supported by this browser.";
+			}
+		});
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.2.2/dist/js/jsvectormap.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/jsvectormap@1.2.2/dist/css/jsvectormap.min.css" rel="stylesheet">
+
+    
+</body>
+
+</html>

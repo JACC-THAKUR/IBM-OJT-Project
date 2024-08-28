@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+	<meta name="author" content="AdminKit">
+	<meta name="keywords"
+		content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+
+	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+	<title>Health Engine With Ai Assistancee</title>
+
+	<link href="/static/css/app.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<nav id="sidebar" class="sidebar js-sidebar">
+			<div class="sidebar-content js-simplebar">
+				<a class="sidebar-brand" href="#">
+					<img src="/static/img/logo.png" alt="Your Logo" class="img-fluid" style="margin-top: 15px;">
+				</a>
+
+				<ul class="sidebar-nav">
+					<li class="sidebar-header">
+						Admin Dashboard
+					</li>
+
+					<li class="sidebar-item active" style="margin-top: 10px;padding-top: 10px;">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="sliders"></i> <span
+								class="align-middle">Dashboard</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{ url_for('register') }}">
+							<i class="align-middle" data-feather="user"></i> <span class="align-middle">Registration</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{ url_for('profile')}}">
+							<i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Profile</span>
+						</a>
+					</li>
+					<li class="sidebar-header" style="margin-top: 0%;"> Service </li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="square"></i> <span
+								class="align-middle">Diabetes</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Heart
+								Disease</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Kidney
+								Disease</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Liver
+								Disease</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i>
+							<span class="align-middle">Breast Cancer</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i>
+							<span class="align-middle">Blood Reports
+							</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Health
+								Check</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Medicine &
+								Pharmacy</span>
+						</a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Sentimental
+								Health</span>
+						</a>
+					</li>
+
+
+				</ul>
+
+
+			</div>
+		</nav>
+
+        <div class="main">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand navbar-light navbar-bg">
+                <a class="sidebar-toggle js-sidebar-toggle">
+                    <i class="hamburger align-self-center"></i>
+                </a>
+        
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav navbar-align">
+                        <li class="nav-item dropdown">
+                            <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
+                                <i class="align-middle" data-feather="settings"></i>
+                            </a>
+                            {% if user_name %}
+                            <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+                                {% if user_image %}
+                                <img src="{{ url_for('static', filename='profile_images/' ~ user_image) }}" class="avatar img-fluid rounded me-1" alt="{{ user_name }}" />
+                                {% else %}
+                                <i class="fas fa-user-circle" style="font-size:40px;"></i>
+                                {% endif %}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="user"></i>{{ user_name }}</a>
+                                <a class="dropdown-item" href="#">{{ user_email }}</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ url_for('doctorprofile') }}"><i class="align-middle me-1" data-feather="settings"></i> Update profile</a>
+                                <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ url_for('logout') }}">Log out</a>
+                            </div>
+                            {% else %}
+                            <a href="{{ url_for('login') }}" class="nav-item nav-link">Login/SignUp</a>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+       
+        
+            <!-- Admin Dashboard Header -->
+
+                <!-- Flash messages for success or error -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close text-end"  data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                
+                <div class="container form-container">
+                    <h2 class="text-center mb-4 mt-4">Registration For Doctor</h2>
+                    <form method="POST" action="{{ url_for('register') }}">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="user_type">User Type:</label>
+                            <select id="user_type" name="user_type" class="form-control" required>
+                                <option value="user">User</option>
+                                <option value="doctor">Doctor</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="doctor-fields" >
+                            <label for="specialization">Specialization:</label>
+                            <input type="text" id="specialization" name="specialization" class="form-control" placeholder="Enter your specialization">
+                        </div>
+                        <div class="form-group" id="doctor-fields" >
+                            <label for="qualifications">Qualifications:</label>
+                            <input type="text" id="qualifications" name="qualifications" class="form-control" placeholder="Enter your qualifications">
+                        </div>
+                        <div class="form-group" id="doctor-fields" >
+                            <label for="experience">Experience (Years):</label>
+                            <input type="number" id="experience" name="experience" class="form-control" placeholder="Enter your experience in years" min="0">
+                        </div>
+                        <div class="form-group" id="doctor-fields">
+                            <label for="phone">Phone:</label>
+                            <input type="text" id="phone" name="phone" class="form-control" placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group" id="doctor-fields" >
+                            <label for="clinic_address">Clinic Address:</label>
+                            <input type="text" id="clinic_address" name="clinic_address" class="form-control" placeholder="Enter your clinic address">
+                        </div>
+                        <div class="form-group form-check mt-2">
+                            <input type="checkbox" id="is_admin" name="is_admin" class="form-check-input">
+                            <label for="is_admin" class="form-check-label">Register as Doctor</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block mt-2">Register</button>
+                    </form>
+                </div>
+           
+            
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.2.2/dist/js/jsvectormap.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/jsvectormap@1.2.2/dist/css/jsvectormap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</body>
+
+</html>
